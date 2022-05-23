@@ -9,12 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KidsGame">
-        android:exported="true"
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity android:name=".Quiz"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter android:exported="true">
-                <action android:name="android.intent.action.MAIN" android:exported="true"/>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" android:exported="true"/>
+                <category
+                    android:name="android.intent.category.LAUNCHER"
+                    android:exported="true" />
             </intent-filter>
         </activity>
     </application>
