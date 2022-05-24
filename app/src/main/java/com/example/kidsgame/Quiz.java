@@ -3,6 +3,7 @@ package com.example.kidsgame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ public class Quiz extends AppCompatActivity {
     private String grass = "aceimnorsuvwxz";
     private String sky = "bdfhklt";
     private String root = "gjpqy";
-    private String Selected;
+    protected String Selected;
     private char alphabet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,27 +35,83 @@ public class Quiz extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        for (Button option:Options) {
-                option.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
 
-                    Selected =  option.getText().toString();
-
-                }
-            });
-        }
 
         for(int i = 0; i < 100; i++){
             alphabet = randomCharGenerator();
             Quest.setText(String.valueOf(alphabet));
-            boolean is_ture = resultCalculator(alphabet,Selected)
+            for (Button option:Options) {
+                option.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Selected =  option.getText().toString();
+
+
+                        String Result = resultCalculator(alphabet);
+                        if(Result.contentEquals(Selected)){
+                            Answer.setText("TRUE");
+                            if(Selected.contentEquals("SKY")) {
+                                Options[0].setBackgroundColor(Color.GREEN);
+                            }
+                            else if(Selected.contentEquals("GRASS")) {
+                                Options[1].setBackgroundColor(Color.GREEN);
+                            }
+                            else if(Selected.contentEquals("ROOT")) {
+                                 Options[2].setBackgroundColor(Color.GREEN);
+                            }
+                        }
+                        else{
+                            if(Result.contentEquals("SKY")) {
+                                Options[0].setBackgroundColor(Color.GREEN);
+                            }
+                            else if(Result.contentEquals("GRASS")) {
+                                Options[1].setBackgroundColor(Color.GREEN);
+                            }
+                            else if(Result.contentEquals("ROOT")) {
+                                Options[2].setBackgroundColor(Color.GREEN);
+                            }
+                            if(Selected.contentEquals("SKY")) {
+                                Options[0].setBackgroundColor(Color.RED);
+
+                            }
+                            else if(Selected.contentEquals("GRASS")) {
+                                Options[1].setBackgroundColor(Color.RED);
+                            }
+                            else if(Selected.contentEquals("ROOT")) {
+                                Options[2].setBackgroundColor(Color.RED);
+                            }
+                            Answer.setText("FALSE");
+                        }
+
+                    }
+                });
+                for (Button temp:Options){
+                    temp.setBackgroundColor(-16720385);
+
+                }
+                Answer.setText("____");
+                continue;
+            }
+
+
+
         }
 
 
     }
-    protected boolean resultCalculator(char alphabet, String choice){
-        return false;
+    protected String resultCalculator(char alphabet){
+        if(root.contains(String.valueOf(alphabet))){
+            return "ROOT";
+        }
+        else if(sky.contains(String.valueOf(alphabet))){
+            return "SKY";
+        }
+        else if(grass.contains(String.valueOf(alphabet))){
+            return "GRASS";
+        }
+
+        return null;
     }
     protected char randomCharGenerator(){
         int randomNo = (int) ((Math.random() * 26)  + 1);
