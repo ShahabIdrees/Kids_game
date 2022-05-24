@@ -13,6 +13,7 @@ public class Quiz extends AppCompatActivity {
     private String sky = "bdfhklt";
     private String root = "gjpqy";
     private String Selected;
+    private char alphabet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,18 +41,21 @@ public class Quiz extends AppCompatActivity {
 
                     Selected =  option.getText().toString();
 
-
                 }
             });
         }
 
         for(int i = 0; i < 100; i++){
+            alphabet = randomCharGenerator();
+            Quest.setText(String.valueOf(alphabet));
 
         }
 
 
     }
-    
+    protected boolean resultCalculator(char alphabet, String selected){
+        return false;
+    }
     protected char randomCharGenerator(){
         int randomNo = (int) ((Math.random() * 26)  + 1);
         char alphabet = (char)(96 + randomNo);
