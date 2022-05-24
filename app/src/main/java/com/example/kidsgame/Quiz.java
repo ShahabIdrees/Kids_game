@@ -48,12 +48,12 @@ public class Quiz extends AppCompatActivity {
         for(int i = 0; i < 100; i++){
             alphabet = randomCharGenerator();
             Quest.setText(String.valueOf(alphabet));
-
+            boolean is_ture = resultCalculator(alphabet,Selected)
         }
 
 
     }
-    protected boolean resultCalculator(char alphabet, String selected){
+    protected boolean resultCalculator(char alphabet, String choice){
         return false;
     }
     protected char randomCharGenerator(){
