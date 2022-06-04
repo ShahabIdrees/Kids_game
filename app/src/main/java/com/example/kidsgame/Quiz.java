@@ -83,12 +83,10 @@ public class Quiz extends AppCompatActivity {
                             }
                             Answer.setText("FALSE");
                         }
-
                     }
                 });
                 for (Button temp:Options){
                     temp.setBackgroundColor(-16720385);
-
                 }
                 Answer.setText("____");
                 continue;
@@ -97,9 +95,8 @@ public class Quiz extends AppCompatActivity {
 
 
         }
-
-
     }
+
     protected String resultCalculator(char alphabet){
         if(root.contains(String.valueOf(alphabet))){
             return "ROOT";
@@ -110,14 +107,13 @@ public class Quiz extends AppCompatActivity {
         else if(grass.contains(String.valueOf(alphabet))){
             return "GRASS";
         }
-
         return null;
     }
+
     protected char randomCharGenerator(){
         int randomNo = (int) ((Math.random() * 26)  + 1);
         char alphabet = (char)(96 + randomNo);
         return alphabet;
     }
-
 
 }
