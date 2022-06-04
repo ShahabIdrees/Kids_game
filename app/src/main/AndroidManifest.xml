@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KidsGame">
-        <activity android:name=".Quiz"></activity>
+        <activity
+            android:name=".Learning"
+            android:exported="false" />
+        <activity android:name=".Quiz" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

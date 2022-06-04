@@ -35,22 +35,21 @@ public class MainActivity extends AppCompatActivity {
         github.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("*/*");
-                intent.putExtra(Intent.EXTRA_EMAIL, "shahabchattha@gmail.com");
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-            }
-        });
-        email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Uri webpage = Uri.parse("https://github.com/ShahabIdrees");
                 Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
                 startActivity(intent);
             }
         });
-
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("*/*");
+                intent.putExtra(Intent.EXTRA_EMAIL, "Gmail");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
     }
 }
