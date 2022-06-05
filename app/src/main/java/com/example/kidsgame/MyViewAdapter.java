@@ -28,7 +28,7 @@ public class MyViewAdapter extends ArrayAdapter<learnigcomponent> {
                 inflate(R.layout.learning_component_view, parent, false);
         TextView textViewGroup = convertView.findViewById(R.id.textView6);
         TextView textViewDescription = convertView.findViewById(R.id.textView7);
-        ImageView imageView = convertView.findViewById(R.id.imageView2);
+        ImageView imageView = convertView.findViewById(R.id.imageView);
         textViewGroup.setText(lc.group);
         textViewDescription.setText(lc.description);
         imageView.setImageResource(lc.imageID);
